@@ -24,3 +24,5 @@
 #import <Ensembles/CDEPersistentStoreEnsemble.h>
 #import <Ensembles/NSMapTable+CDEAdditions.h>
 #import <Ensembles/NSManagedObjectModel+CDEAdditions.h>
+
+#import <Ensembles/CDEDropboxCloudFileSystem.h>

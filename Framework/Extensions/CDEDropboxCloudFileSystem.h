@@ -10,7 +10,7 @@
 #import <Ensembles/Ensembles.h>
 
 #if TARGET_OS_IPHONE
-#import "DropboxSDK.h"
+#import <DropboxSDK/DropboxSDK.h>
 #else
 #import <DropboxOSX/DropboxOSX.h>
 #endif

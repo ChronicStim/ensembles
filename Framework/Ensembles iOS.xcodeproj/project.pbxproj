@@ -170,17 +170,6 @@
 		3EE3026E1B3835D40088FEA2 /* CDEMultipeerCloudFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE302681B3835D40088FEA2 /* CDEMultipeerCloudFileSystem.m */; };
 		3EE3026F1B3835D40088FEA2 /* CDENodeCloudFileSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EE302691B3835D40088FEA2 /* CDENodeCloudFileSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EE302701B3835D40088FEA2 /* CDENodeCloudFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3026A1B3835D40088FEA2 /* CDENodeCloudFileSystem.m */; };
-		3EE3027E1B3837300088FEA2 /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EE302731B3837300088FEA2 /* crypt.h */; };
-		3EE3027F1B3837300088FEA2 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 3EE302741B3837300088FEA2 /* ioapi.c */; };
-		3EE302801B3837300088FEA2 /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EE302751B3837300088FEA2 /* ioapi.h */; };
-		3EE302811B3837300088FEA2 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 3EE302761B3837300088FEA2 /* mztools.c */; };
-		3EE302821B3837300088FEA2 /* mztools.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EE302771B3837300088FEA2 /* mztools.h */; };
-		3EE302831B3837300088FEA2 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 3EE302781B3837300088FEA2 /* unzip.c */; };
-		3EE302841B3837300088FEA2 /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EE302791B3837300088FEA2 /* unzip.h */; };
-		3EE302851B3837300088FEA2 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3027A1B3837300088FEA2 /* zip.c */; };
-		3EE302861B3837300088FEA2 /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EE3027B1B3837300088FEA2 /* zip.h */; };
-		3EE302871B3837300088FEA2 /* SSZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EE3027C1B3837300088FEA2 /* SSZipArchive.h */; };
-		3EE302881B3837300088FEA2 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3027D1B3837300088FEA2 /* SSZipArchive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -765,7 +754,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EE302841B3837300088FEA2 /* unzip.h in Headers */,
 				07571EE01910E171008479A9 /* Ensembles.h in Headers */,
 				07571EE71910E171008479A9 /* CDEAsynchronousOperation.h in Headers */,
 				07571EE31910E171008479A9 /* CDEAsynchronousTaskQueue.h in Headers */,
@@ -776,7 +764,6 @@
 				07571EE11910E171008479A9 /* CDEDefines.h in Headers */,
 				07571EEA1910E171008479A9 /* CDEFileDownloadOperation.h in Headers */,
 				07571EEB1910E171008479A9 /* CDEFileUploadOperation.h in Headers */,
-				3EE302801B3837300088FEA2 /* ioapi.h in Headers */,
 				07571EE41910E171008479A9 /* CDEFoundationAdditions.h in Headers */,
 				07571EE81910E171008479A9 /* CDEICloudFileSystem.h in Headers */,
 				07571EE91910E171008479A9 /* CDELocalCloudFileSystem.h in Headers */,
@@ -787,7 +774,6 @@
 				07571EEC1910E171008479A9 /* CDEEventFile.h in Headers */,
 				07571EF01910E171008479A9 /* CDECloudManager.h in Headers */,
 				07571EF21910E171008479A9 /* CDEPersistentStoreImporter.h in Headers */,
-				3EE302861B3837300088FEA2 /* zip.h in Headers */,
 				07571EF31910E171008479A9 /* CDEEventStore.h in Headers */,
 				07571EF41910E171008479A9 /* CDEEventBuilder.h in Headers */,
 				07571EF51910E171008479A9 /* CDEEventIntegrator.h in Headers */,
@@ -796,20 +782,17 @@
 				07571EF71910E171008479A9 /* CDEPropertyChangeValue.h in Headers */,
 				07571EF81910E171008479A9 /* CDESaveMonitor.h in Headers */,
 				07571EF91910E171008479A9 /* CDEEventRevision.h in Headers */,
-				3EE302871B3837300088FEA2 /* SSZipArchive.h in Headers */,
 				07DBC8421A7269D00031594C /* NSFileCoordinator+CDEAdditions.h in Headers */,
 				07571EFA1910E171008479A9 /* CDEGlobalIdentifier.h in Headers */,
 				07571EFB1910E171008479A9 /* CDEObjectChange.h in Headers */,
 				07571EFC1910E171008479A9 /* CDEStoreModificationEvent.h in Headers */,
 				07571EFD1910E171008479A9 /* CDEDataFile.h in Headers */,
 				3EE3026B1B3835D40088FEA2 /* CDEDropboxCloudFileSystem.h in Headers */,
-				3EE302821B3837300088FEA2 /* mztools.h in Headers */,
 				07571EFE1910E171008479A9 /* CDERevision.h in Headers */,
 				07571EFF1910E171008479A9 /* CDERevisionManager.h in Headers */,
 				07571F001910E171008479A9 /* CDERevisionSet.h in Headers */,
 				07571F011910E171008479A9 /* CDEBaselineConsolidator.h in Headers */,
 				07571F021910E171008479A9 /* CDERebaser.h in Headers */,
-				3EE3027E1B3837300088FEA2 /* crypt.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1055,7 +1038,6 @@
 				07BF37C117F1853000C56F64 /* CDERevision.m in Sources */,
 				07BF37B717F1853000C56F64 /* CDESaveMonitor.m in Sources */,
 				07D184001892824200E89B89 /* CDERebaser.m in Sources */,
-				3EE302811B3837300088FEA2 /* mztools.c in Sources */,
 				07BF37B817F1853000C56F64 /* CDEAsynchronousTaskQueue.m in Sources */,
 				07BF37B317F1853000C56F64 /* CDEEventIntegrator.m in Sources */,
 				0701771518C25F2A00C4DA01 /* CDEFileUploadOperation.m in Sources */,
@@ -1063,13 +1045,9 @@
 				3EE3026C1B3835D40088FEA2 /* CDEDropboxCloudFileSystem.m in Sources */,
 				07BF37B417F1853000C56F64 /* CDEEventMigrator.m in Sources */,
 				07BF37B217F1853000C56F64 /* CDEEventBuilder.m in Sources */,
-				3EE302831B3837300088FEA2 /* unzip.c in Sources */,
 				07BF37AC17F1853000C56F64 /* CDECloudManager.m in Sources */,
 				07D183FF1892824200E89B89 /* CDEBaselineConsolidator.m in Sources */,
-				3EE302881B3837300088FEA2 /* SSZipArchive.m in Sources */,
-				3EE302851B3837300088FEA2 /* zip.c in Sources */,
 				07BF37AA17F1853000C56F64 /* CDECloudDirectory.m in Sources */,
-				3EE3027F1B3837300088FEA2 /* ioapi.c in Sources */,
 				07BF37BE17F1853000C56F64 /* CDEGlobalIdentifier.m in Sources */,
 				07973EFF183BE40A007F48CA /* CDELocalCloudFileSystem.m in Sources */,
 				07BF37C317F1853000C56F64 /* CDERevisionSet.m in Sources */,

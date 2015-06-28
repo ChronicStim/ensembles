@@ -77,6 +77,49 @@ NSString * const CDEManagedObjectContextSaveNotificationKey = @"managedObjectCon
 
 #pragma mark - Initialization and Deallocation
 
+- (instancetype)initWithEnsembleIdentifier:(NSString *)identifier persistentStoreURL:(NSURL *)newStoreURL persistentStoreOptions:(NSDictionary *)storeOptions managedObjectModel:(NSManagedObjectModel *)model cloudFileSystem:(id <CDECloudFileSystem>)newCloudFileSystem localDataRootDirectoryURL:(NSURL *)eventDataRootURL
+{
+    NSParameterAssert(identifier != nil);
+    NSParameterAssert(newStoreURL != nil);
+    NSParameterAssert(model != nil);
+    NSParameterAssert(newCloudFileSystem != nil);
+    self = [super init];
+    if (self) {
+        persistentStoreOptions = storeOptions;
+        
+        operationQueue = [[NSOperationQueue alloc] init];
+        operationQueue.maxConcurrentOperationCount = 1;
+        
+        observingIdentityToken = NO;
+        
+        self.ensembleIdentifier = identifier;
+        self.storeURL = newStoreURL;
+        self.managedObjectModel = model;
+        self.cloudFileSystem = newCloudFileSystem;
+        
+        BOOL success = [self setupEventStoreWithDataRootDirectoryURL:eventDataRootURL];
+        if (!success) return nil;
+        
+        self.leeched = eventStore.containsEventData;
+        if (self.leeched) [self.eventStore removeUnusedDataWithCompletion:NULL];
+        
+        [self initializeEventIntegrator];
+        
+        self.saveMonitor = [[CDESaveMonitor alloc] initWithStorePath:newStoreURL.path];
+        self.saveMonitor.ensemble = self;
+        self.saveMonitor.eventStore = eventStore;
+        self.saveMonitor.eventIntegrator = self.eventIntegrator;
+        
+        self.cloudManager = [[CDECloudManager alloc] initWithEventStore:self.eventStore cloudFileSystem:self.cloudFileSystem];
+        
+        self.baselineConsolidator = [[CDEBaselineConsolidator alloc] initWithEventStore:self.eventStore];
+        self.rebaser = [[CDERebaser alloc] initWithEventStore:self.eventStore];
+        
+        [self performInitialChecks];
+    }
+    return self;
+}
+
 - (instancetype)initWithEnsembleIdentifier:(NSString *)identifier persistentStoreURL:(NSURL *)newStoreURL persistentStoreOptions:(NSDictionary *)storeOptions managedObjectModelURL:(NSURL *)modelURL cloudFileSystem:(id <CDECloudFileSystem>)newCloudFileSystem localDataRootDirectoryURL:(NSURL *)eventDataRootURL
 {
     NSParameterAssert(identifier != nil);
@@ -119,6 +162,11 @@ NSString * const CDEManagedObjectContextSaveNotificationKey = @"managedObjectCon
         [self performInitialChecks];
     }
     return self;
+}
+
+- (instancetype)initWithEnsembleIdentifier:(NSString *)identifier persistentStoreURL:(NSURL *)url managedObjectModel:(NSManagedObjectModel *)model cloudFileSystem:(id <CDECloudFileSystem>)newCloudFileSystem;
+{
+    return [self initWithEnsembleIdentifier:identifier persistentStoreURL:url persistentStoreOptions:nil managedObjectModel:model cloudFileSystem:newCloudFileSystem localDataRootDirectoryURL:nil];
 }
 
 - (instancetype)initWithEnsembleIdentifier:(NSString *)identifier persistentStoreURL:(NSURL *)url managedObjectModelURL:(NSURL *)modelURL cloudFileSystem:(id <CDECloudFileSystem>)newCloudFileSystem

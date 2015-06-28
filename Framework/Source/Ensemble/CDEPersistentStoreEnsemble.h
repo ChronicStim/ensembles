@@ -303,6 +303,9 @@ extern NSString * const CDEManagedObjectContextSaveNotificationKey;
  */
 - (instancetype)initWithEnsembleIdentifier:(NSString *)identifier persistentStoreURL:(NSURL *)storeURL managedObjectModelURL:(NSURL *)modelURL cloudFileSystem:(id <CDECloudFileSystem>)cloudFileSystem;
 
+- (instancetype)initWithEnsembleIdentifier:(NSString *)identifier persistentStoreURL:(NSURL *)url managedObjectModel:(NSManagedObjectModel *)model cloudFileSystem:(id <CDECloudFileSystem>)newCloudFileSystem;
+
+
 /**
  Initializes an ensemble.
  
@@ -316,6 +319,8 @@ extern NSString * const CDEManagedObjectContextSaveNotificationKey;
  @param dataRootURL The file URL to the root directory used by the ensemble to store transaction logs and other metadata. Passing nil will cause the default directory to be used.
  */
 - (instancetype)initWithEnsembleIdentifier:(NSString *)identifier persistentStoreURL:(NSURL *)storeURL persistentStoreOptions:(NSDictionary *)options managedObjectModelURL:(NSURL *)modelURL cloudFileSystem:(id <CDECloudFileSystem>)cloudFileSystem localDataRootDirectoryURL:(NSURL *)dataRootURL;
+
+- (instancetype)initWithEnsembleIdentifier:(NSString *)identifier persistentStoreURL:(NSURL *)newStoreURL persistentStoreOptions:(NSDictionary *)storeOptions managedObjectModel:(NSManagedObjectModel *)model cloudFileSystem:(id <CDECloudFileSystem>)newCloudFileSystem localDataRootDirectoryURL:(NSURL *)eventDataRootURL;
 
 
 ///

@@ -10,9 +10,9 @@
 #import <Ensembles/Ensembles.h>
 
 #if TARGET_OS_IPHONE
-#import <DropboxSDK/DropboxSDK.h>
+#import "DropboxSDK/DropboxSDK.h"
 #else
-#import <DropboxOSX/DropboxOSX.h>
+#import "DropboxSDK/DropboxSDK.h"
 #endif
 
 @class CDEDropboxCloudFileSystem;
